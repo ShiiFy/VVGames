@@ -41,7 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Basket\Basket.cs" />
+    <Compile Include="Entities\Product\GameGenre.cs" />
+    <Compile Include="Entities\Product\Games.cs" />
+    <Compile Include="Entities\User\ULoginData.cs" />
+    <Compile Include="Entities\User\ULoginSuccess.cs" />
+    <Compile Include="Entities\User\URegistrData.cs" />
+    <Compile Include="Entities\User\URegistrSuccess.cs" />
+    <Compile Include="Entities\User\UUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VVGames.Helper\VVGames.Helper.csproj">
+      <Project>{c6d0592c-c231-4f48-ad2f-c8f217b0e173}</Project>
+      <Name>VVGames.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

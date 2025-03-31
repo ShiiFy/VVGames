@@ -41,7 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BasketBL.cs" />
+    <Compile Include="BL\ProductBL.cs" />
+    <Compile Include="BL\SessionBL.cs" />
+    <Compile Include="BussinesLogic.cs" />
+    <Compile Include="Core\ProductApi.cs" />
+    <Compile Include="Core\UserApi.cs" />
+    <Compile Include="Interface\IBasket.cs" />
+    <Compile Include="Interface\IProduct.cs" />
+    <Compile Include="Interface\ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VVGames.Domain\VVGames.Domain.csproj">
+      <Project>{db83c0f7-9110-4d83-8306-bd44aa8a3cdb}</Project>
+      <Name>VVGames.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VVGames.Helper\VVGames.Helper.csproj">
+      <Project>{c6d0592c-c231-4f48-ad2f-c8f217b0e173}</Project>
+      <Name>VVGames.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

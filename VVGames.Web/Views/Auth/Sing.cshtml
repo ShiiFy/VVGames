@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Sing";
+}
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Registration</h3>
+                <span class="breadcrumb"><a href="#">Home</a>  >  Registration</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="contact-page section">
+    <div class="wrapper">
+        <h1>Hello!</h1>
+        <p>
+            Welcome back!<br>
+            We missed you!
+        </p>
+        <form>
+            <input type="text" placeholder="Enter your username">
+            <input type="password" placeholder="Enter your password">
+            <p class="recover">
+                <a href="#">Forget the password?</a>
+            </p>
+        </form>
+        <button>LOG IN</button>
+        <p class="or">---------log in via social networks----------</p>
+        <div class="icons">
+            <i class="fab fa-google"></i>
+            <i class="fab fa-facebook"></i>
+        </div>
+        <div class="sinup">
+            Don't have account? @Html.ActionLink("Register", "Reg", "Auth", new { area = "" }, new { @class = "sinup" })
+        </div>
+    </div>
+</div>
+
