@@ -8,6 +8,37 @@ namespace VVGames.Web.Controllers
 {
     public class ProductController : Controller
     {
-        
+        public ActionResult Call_of_Duty()
+        {
+            return View();
+        }
+
+
+        public ActionResult Civilithation()
+        {
+            return View();
+        }
+        public ActionResult Helldivers_2()
+        {
+            return View();
+        }
+
+        public ActionResult Hearts_of_Iron_IV()
+        {
+            return View();
+        }
+        public ActionResult Oblivion()
+        {
+            return View();
+        }
+        public ActionResult Kingdom()
+        {
+            return View();
+        }
+        public ActionResult Warhammer()
+        {
+            return View();
+        }
     }
+
 }

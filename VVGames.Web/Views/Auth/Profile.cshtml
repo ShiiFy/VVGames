@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section style="padding: 120px 0 60px 0; background: #f0f8ff;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 style="font-weight: 700;">Профиль пользователя</h2>
+            <p>Добро пожаловать в ваш профиль. Здесь будут отображаться ваши персональные данные.</p>
+        </div>
+
+        <div class="card shadow-lg border-0" style="border-radius: 20px; padding: 30px;">
+            <div class="card-body">
+
+                <!-- Имя пользователя -->
+                <div class="mb-4 d-flex align-items-center justify-content-between">
+                    <div>
+                        <label class="form-label"><strong>Имя пользователя:</strong></label><br />
+                        <span id="usernameDisplay">gamer123</span>
+                        <input id="usernameInput" class="form-control d-none mt-2" type="text" value="gamer123" />
+                    </div>
+                    <button id="editUsernameBtn" class="btn btn-danger btn-sm ms-3">Изменить</button>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4 d-flex align-items-center justify-content-between">
+                    <div>
+                        <label class="form-label"><strong>Email:</strong></label><br />
+                        <span id="emailDisplay">user@example.com</span>
+                        <input id="emailInput" class="form-control d-none mt-2" type="email" value="user@example.com" />
+                    </div>
+                    <button id="editEmailBtn" class="btn btn-danger btn-sm ms-3">Изменить</button>
+                </div>
+
+                <!-- Телефон -->
+                <div class="mb-4 d-flex align-items-center justify-content-between">
+                    <div>
+                        <label class="form-label"><strong>Телефон:</strong></label><br />
+                        <span id="phoneDisplay">+380501112233</span>
+                        <input id="phoneInput" class="form-control d-none mt-2" type="text" value="+380501112233" />
+                    </div>
+                    <button id="editPhoneBtn" class="btn btn-danger btn-sm ms-3">Изменить</button>
+                </div>
+
+                <!-- Остальные данные -->
+                <div class="mb-4">
+                    <label class="form-label"><strong>Роль:</strong></label>
+                    <p class="form-control-plaintext">Пользователь</p>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label"><strong>Дата регистрации:</strong></label>
+                    <p class="form-control-plaintext">01.01.2024</p>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label"><strong>Последний вход:</strong></label>
+                    <p class="form-control-plaintext">09.05.2025</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Шапка и стилизация */
+    .header-area {
+        background-color: #0078FF !important;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        transition: none !important;
+        animation: none !important;
+        box-shadow: none !important;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    /* Правильное выравнивание */
+    .card-body .form-label {
+        margin-bottom: 0.25rem;
+    }
+
+    input.form-control {
+        margin-top: 0.25rem;
+    }
+
+    .d-flex.align-items-center.justify-content-between > div {
+        flex-grow: 1;
+    }
+</style>
+
+@section scripts {
+    <script>
+        function setupEdit(field) {
+            const display = document.getElementById(`${field}Display`);
+            const input = document.getElementById(`${field}Input`);
+            const button = document.getElementById(`edit${capitalize(field)}Btn`);
+
+            button.addEventListener("click", () => {
+                const isEditing = !input.classList.contains("d-none");
+
+                if (!isEditing) {
+                    display.classList.add("d-none");
+                    input.classList.remove("d-none");
+                    button.textContent = "Сохранить";
+                    input.focus();
+                } else {
+                    display.textContent = input.value;
+                    display.classList.remove("d-none");
+                    input.classList.add("d-none");
+                    button.textContent = "Изменить";
+                }
+            });
+
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    display.textContent = input.value;
+                    display.classList.remove("d-none");
+                    input.classList.add("d-none");
+                    button.textContent = "Изменить";
+                }
+            });
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setupEdit("username");
+            setupEdit("email");
+            setupEdit("phone");
+        });
+    </script>
+}

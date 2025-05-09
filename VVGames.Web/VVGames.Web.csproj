@@ -154,6 +154,14 @@
     <Content Include="Content\images\featured-03.png" />
     <Content Include="Content\images\featured-04.png" />
     <Content Include="Content\images\footer-bg.jpg" />
+    <Content Include="Content\images\games\Civilization.jpg" />
+    <Content Include="Content\images\games\CoD_MV3.jpg" />
+    <Content Include="Content\images\games\Oblivion.jpg" />
+    <Content Include="Content\images\games\Helldivers.jpg" />
+    <Content Include="Content\images\games\Hearts_Of_Iron_IV.jpg" />
+    <Content Include="Content\images\games\Kingdom.jpg" />
+    <Content Include="Content\images\games\Rust.jpg" />
+    <Content Include="Content\images\games\Warhammer.jpg" />
     <Content Include="Content\images\helldivers.png" />
     <Content Include="Content\images\hoi4.jpg" />
     <Content Include="Content\images\Kindum.jpg" />
@@ -265,6 +273,14 @@
     <Content Include="Views\Home\Wheel.cshtml" />
     <Content Include="Views\Auth\Sing.cshtml" />
     <Content Include="Views\Auth\Reg.cshtml" />
+    <Content Include="Views\Product\Call_of_Duty.cshtml" />
+    <Content Include="Views\Product\Civilithation.cshtml" />
+    <Content Include="Views\Product\Helldivers_2.cshtml" />
+    <Content Include="Views\Product\Hearts_of_Iron_IV.cshtml" />
+    <Content Include="Views\Product\Oblivion.cshtml" />
+    <Content Include="Views\Product\Kingdom.cshtml" />
+    <Content Include="Views\Product\Warhammer.cshtml" />
+    <Content Include="Views\Auth\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,7 +291,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Product\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VVGames.BusinessLogic\VVGames.BusinessLogic.csproj">

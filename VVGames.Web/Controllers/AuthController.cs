@@ -26,12 +26,19 @@ namespace VVGames.Web.Controllers
                 Username = "ShiFy",
                 Password = "1q2w3e4r"
             };
-            using(var db = new UserContext())
+            using (var db = new UserContext())
             {
                 db.Users.Add(user);
                 db.SaveChanges();
             }
             return View();
         }
+        public ActionResult Profile()
+
+        {
+            return View();
+        }
+
+
     }
 }
