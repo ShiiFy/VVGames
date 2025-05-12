@@ -14,7 +14,7 @@ namespace VVGames.BusinessLogic.DBModel
         public UserContext() :
             base("name=VVGames")
         {
-
+            Database.SetInitializer(new CreateDatabaseIfNotExists<UserContext>());
         }
 
         public virtual DbSet<DBUser> Users { get; set; }

@@ -51,6 +51,7 @@
     <Compile Include="Entities\User\URegistrData.cs" />
     <Compile Include="Entities\User\URegistrSuccess.cs" />
     <Compile Include="Entities\User\UUsers.cs" />
+    <Compile Include="Entities\User\UUserUpdate.cs" />
     <Compile Include="Enums\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

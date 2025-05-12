@@ -13,7 +13,6 @@
 
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/JSFails")
 
     </head>
     <body>
@@ -40,11 +39,26 @@
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "active" })</li>
-                                <li>@Html.ActionLink("V&v Games", "Shop", "Home", new { area = "" })</li>
-                                <li>@Html.ActionLink("Wheel of fortune", "Wheel", "Home", new { area = "" })</li>
-                                <li>@Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" })</li>
-                                <li>@Html.ActionLink("Sign In", "Sing", "Auth", new { area = "" }, new { @class = "nav__singin" })</li>
+                                <li><a href="@Url.Action("Index", "Home")" class="nav-link text-center d-flex align-items-center justify-content-center">Home</a></li>
+                                <li><a href="@Url.Action("Shop", "Home")" class="nav-link d-flex align-items-center justify-content-center">V&V Games</a></li>
+                                <li><a href="@Url.Action("Wheel", "Home")" class="nav-link d-flex align-items-center justify-content-center">Wheel of fortune</a> </li>
+                                <li><a href="@Url.Action("Contact", "Home")" class="nav-link d-flex align-items-center justify-content-center">Contact Us</a></li>
+                                <li>
+                                    @if (Session["UserId"] != null)
+                                    {
+                                        var username = (string)Session["Username"];
+                                        var displayName = username.Length > 12 ? username.Substring(0, 10) + "…" : username;
+
+                                        <a href="@Url.Action("UserProfile", "Auth")" class="btn btn-outline-light me-2 d-flex align-items-center justify-content-center">
+                                            @displayName
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Sing", "Auth")" class="btn btn-outline-light me-2 d-flex align-items-center justify-content-center">Sign in</a>
+                                    }
+
+                                </li>
                             </ul>
                             <a href="@Url.Action("Basket", "Home")" class="nav__link">
                                 <img src="~/Content/images/shop-cart.svg" alt="image: shopping cart" class="nav__image">
@@ -73,6 +87,7 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/JSFails")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </body>

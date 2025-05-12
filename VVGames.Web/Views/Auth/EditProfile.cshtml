@@ -1,0 +1,76 @@
+﻿@model VVGames.Domain.Entities.User.UUserUpdate
+
+@{
+    ViewBag.Title = "Редактировать профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .header-area {
+        background-color: #007BFF !important;
+    }
+
+    .edit-form-container {
+        max-width: 800px;
+        margin: 140px auto 40px auto;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+        font-weight: 600;
+    }
+</style>
+
+<div class="container">
+    <div class="edit-form-container">
+        <h2 class="text-center mb-4">Редактирование профиля</h2>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-info text-center">@ViewBag.Message</div>
+        }
+
+        @using (Html.BeginForm("UpdateProfile", "Auth", FormMethod.Post))
+        {
+            <div class="form-group mb-3">
+                <label>Имя</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                <label>Логин</label>
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+            </div>
+            <div class="form-group mb-3">
+                <label>Телефон</label>
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+
+            <hr />
+
+            <div class="form-group mb-3">
+                <label>Новый пароль</label>
+                @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-3">
+                <label>Подтвердите новый пароль</label>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+            <div class="form-group mb-4">
+                <label>Текущий пароль <span class="text-danger">*</span></label>
+                @Html.PasswordFor(m => m.CurrentPassword, new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5">Сохранить изменения</button>
+                <a href="@Url.Action("UserProfile", "Auth")" class="btn btn-secondary ms-2">Отмена</a>
+            </div>
+        }
+    </div>
+</div>

@@ -14,6 +14,6 @@ namespace VVGames.BusinessLogic.Interface
         bool IsAuthenticated(int userId); //проверка зарегистрирован ли пользователь
         UUsers GetCurrentUser(int userId); //получение информации о пользователе
         bool ChangePassword(int userId, string oldPassword, string newPassword); //Сменя пароля
-
+        bool UpdateUser(int userId, UUserUpdate update); //Обновление данных
     }
 }

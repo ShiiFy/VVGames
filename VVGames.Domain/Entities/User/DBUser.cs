@@ -32,7 +32,7 @@ namespace VVGames.Domain.Entities.User
         [Required]
         [Display(Name = "Password")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Password cannot be shorter than 8 charicters.")]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
         [Display(Name = "Phone")]
         [StringLength(15, MinimumLength = 9)]

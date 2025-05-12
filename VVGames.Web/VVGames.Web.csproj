@@ -280,7 +280,8 @@
     <Content Include="Views\Product\Oblivion.cshtml" />
     <Content Include="Views\Product\Kingdom.cshtml" />
     <Content Include="Views\Product\Warhammer.cshtml" />
-    <Content Include="Views\Auth\Profile.cshtml" />
+    <Content Include="Views\Auth\UserProfile.cshtml" />
+    <Content Include="Views\Auth\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

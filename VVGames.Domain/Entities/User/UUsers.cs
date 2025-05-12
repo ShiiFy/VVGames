@@ -8,11 +8,10 @@ namespace VVGames.Domain.Entities.User
 {
     public class UUsers
     {
-        public string ID { get; set; } //ID пользователя
-        public string UserName { get; set; } //Имя пользователя
+        public int Id { get; set; } //ID пользователя
+        public string Username { get; set; } //Имя пользователя
         public string Name { get; set; } //Имя 
-        public string UserEmail { get; set; } //Email пользователя
-        public string Password { get; set; } //Пароль
+        public string Email { get; set; } //Email пользователя
         public string PhoneNumber { get; set; } //Номер пользователя
         public string Role { get; set; } //Роль пользователя
         public DateTime LoginDateTime { get; set; } //Время регистрации

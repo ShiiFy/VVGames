@@ -1,0 +1,76 @@
+﻿@model VVGames.Domain.Entities.User.UUsers
+
+@{
+    ViewBag.Title = "Профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .header-area {
+        background-color: #007BFF !important; /* синий хедер */
+    }
+
+    .profile-wrapper {
+        max-width: 900px;
+        margin: 140px auto 40px auto;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-label {
+        font-weight: bold;
+    }
+
+    .profile-value {
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+</style>
+
+<div class="container">
+    <div class="profile-wrapper">
+        <h2 class="text-center mb-4">Профиль пользователя</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="profile-label">Имя:</div>
+                <div class="profile-value">@(!string.IsNullOrWhiteSpace(Model.Name) ? Model.Name : "Не указано")</div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-label">Логин:</div>
+                <div class="profile-value">@Model.Username</div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="profile-label">Email:</div>
+                <div class="profile-value">@Model.Email</div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-label">Телефон:</div>
+                <div class="profile-value">@(!string.IsNullOrWhiteSpace(Model.PhoneNumber) ? Model.PhoneNumber : "Не указан")</div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="profile-label">Роль:</div>
+                <div class="profile-value">@Model.Role</div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-label">Дата регистрации:</div>
+                <div class="profile-value">@Model.LoginDateTime.ToString("dd.MM.yyyy")</div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-label">Последний вход:</div>
+                <div class="profile-value">@Model.LastDateTime.ToString("dd.MM.yyyy HH:mm")</div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("EditProfile", "Auth")" class="btn btn-outline-primary px-4">Редактировать</a>
+        </div>
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Logout", "Auth")" class="btn btn-danger px-4">Выйти из аккаунта</a>
+        </div>
+    </div>
+</div>

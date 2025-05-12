@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Reg";
 }
 
@@ -8,44 +7,50 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3>Registration</h3>
-                <span class="breadcrumb"><a href="#">Home</a>  >  Registration</span>
+                <span class="breadcrumb"><a href="#">Home</a> > Registration</span>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ***** wheel of fortune***** -->
 <div class="contact-page section">
     <div class="contact-page-container">
         <div class="register-form-conteiner">
             <h1 class="form-title">Registration</h1>
-            <div class="form-fields">
-                <div class="form-field">
-                    <input type="text" placeholder="username">
+
+            @using (Html.BeginForm("Reg", "Auth", FormMethod.Post))
+            {
+                <div class="form-fields">
+                    <div class="form-field">
+                        <input type="text" name="username" placeholder="Username" required />
+                    </div>
+                    <div class="form-field">
+                        <input type="text" name="name" placeholder="Name" />
+                    </div>
+                    <div class="form-field">
+                        <input type="text" name="email" placeholder="Email" required />
+                    </div>
+                    <div class="form-field">
+                        <input type="text" name="telephone" placeholder="Telephone number" />
+                    </div>
+                    <div class="form-field">
+                        <input type="password" name="password" placeholder="Password" required />
+                    </div>
+                    <div class="form-field">
+                        <input type="password" name="confirmPassword" placeholder="Confirm password" required />
+                    </div>
                 </div>
-                <div class="form-field">
-                    <input type="text" placeholder="name">
+                <div class="form-buttons">
+                    <button type="submit" class="button">Registration</button>
+                    <div class="diveder">Or</div>
+                    @Html.ActionLink("Log in", "Sing", "Auth", null, new { @class = "button-log" })
                 </div>
-                <div class="form-field">
-                    <input type="text" placeholder="email">
-                </div>
-                <div class="form-field">
-                    <input type="text" placeholder="telephone number">
-                </div>
-                <div class="form-field">
-                    <input type="text" placeholder="password">
-                </div>
-                <div class="form-field">
-                    <input type="text" placeholder="confirm password">
-                </div>
-            </div>
-            <div class="form-buttons">
-                <button class="button">Registration</button>
-                <div class="diveder">Or</div>
-                @Html.ActionLink("log in", "Sing", "Auth", new { area = "" }, new { @class = "button-log" })
-            </div>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger mt-2">@ViewBag.Message</div>
+            }
         </div>
     </div>
-    <!-- /.contact-page-container -->
 </div>
-
