@@ -155,12 +155,17 @@
     <Content Include="Content\images\featured-04.png" />
     <Content Include="Content\images\footer-bg.jpg" />
     <Content Include="Content\images\games\Civilization.jpg" />
+    <Content Include="Content\images\games\Civilization_VII_cover.png" />
     <Content Include="Content\images\games\CoD_MV3.jpg" />
+    <Content Include="Content\images\games\Forza_Horizon_5.jpg" />
+    <Content Include="Content\images\games\NBA.jpg" />
     <Content Include="Content\images\games\Oblivion.jpg" />
     <Content Include="Content\images\games\Helldivers.jpg" />
     <Content Include="Content\images\games\Hearts_Of_Iron_IV.jpg" />
     <Content Include="Content\images\games\Kingdom.jpg" />
     <Content Include="Content\images\games\Rust.jpg" />
+    <Content Include="Content\images\games\schedule.png" />
+    <Content Include="Content\images\games\Stone.jpg" />
     <Content Include="Content\images\games\Warhammer.jpg" />
     <Content Include="Content\images\helldivers.png" />
     <Content Include="Content\images\hoi4.jpg" />
@@ -282,6 +287,11 @@
     <Content Include="Views\Product\Warhammer.cshtml" />
     <Content Include="Views\Auth\UserProfile.cshtml" />
     <Content Include="Views\Auth\EditProfile.cshtml" />
+    <Content Include="Views\Product\NBA_K25.cshtml" />
+    <Content Include="Views\Product\Rust.cshtml" />
+    <Content Include="Views\Product\Forza_Horizon_5.cshtml" />
+    <Content Include="Views\Product\Schedule.cshtml" />
+    <Content Include="Views\Product\Stone_Simulator.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
