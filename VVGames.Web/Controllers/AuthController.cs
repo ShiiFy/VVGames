@@ -47,7 +47,6 @@ namespace VVGames.Web.Controllers
             return RedirectToAction("Sing");
         }
 
-
         [HttpGet]
         public ActionResult Sing() => View();
 
@@ -127,5 +126,6 @@ namespace VVGames.Web.Controllers
             Session.Clear();
             return RedirectToAction("Sing", "Auth"); 
         }
+        public ActionResult AccessDenied() => View();
     }
 }

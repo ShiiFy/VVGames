@@ -38,6 +38,9 @@ namespace VVGames.Domain.Entities.User
         [StringLength(15, MinimumLength = 9)]
         public string PhoneNumber { get; set;}
 
+        [Display(Name = "User Blocked")]
+        public bool IsBlocked { get; set; } = false;
+
         public URole Level { get; set;}
 
         [DataType(DataType.Date)]

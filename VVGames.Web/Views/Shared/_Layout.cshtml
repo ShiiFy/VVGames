@@ -43,6 +43,15 @@
                                 <li><a href="@Url.Action("Shop", "Home")" class="nav-link d-flex align-items-center justify-content-center">V&V Games</a></li>
                                 <li><a href="@Url.Action("Wheel", "Home")" class="nav-link d-flex align-items-center justify-content-center">Wheel of fortune</a> </li>
                                 <li><a href="@Url.Action("Contact", "Home")" class="nav-link d-flex align-items-center justify-content-center">Contact Us</a></li>
+                                @if (Session["Role"] != null && (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "SuperAdmin"))
+                                {
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Dashboard", "Admin")"
+                                           class="nav-link text-warning fw-bold d-flex align-items-center justify-content-center">
+                                            Панель админа
+                                        </a>
+                                    </li>
+                                }
                                 <li>
                                     @if (Session["UserId"] != null)
                                     {
@@ -57,7 +66,6 @@
                                     {
                                         <a href="@Url.Action("Sing", "Auth")" class="btn btn-outline-light me-2 d-flex align-items-center justify-content-center">Sign in</a>
                                     }
-
                                 </li>
                             </ul>
                             <a href="@Url.Action("Basket", "Home")" class="nav__link">

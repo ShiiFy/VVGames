@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Basket\Basket.cs" />
+    <Compile Include="Entities\Basket\DBBasket.cs" />
+    <Compile Include="Entities\Product\DBGames.cs" />
     <Compile Include="Entities\Product\GameGenre.cs" />
     <Compile Include="Entities\Product\Games.cs" />
     <Compile Include="Entities\User\DBUser.cs" />

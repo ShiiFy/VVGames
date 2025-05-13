@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using VVGames.Domain.Entities.Basket;
+using VVGames.Domain.Entities.Product;
 using VVGames.Domain.Entities.User;
 
 namespace VVGames.BusinessLogic.DBModel
@@ -14,10 +16,9 @@ namespace VVGames.BusinessLogic.DBModel
         public UserContext() :
             base("name=VVGames")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<UserContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UserContext>());
         }
 
         public virtual DbSet<DBUser> Users { get; set; }
-
     }
 }

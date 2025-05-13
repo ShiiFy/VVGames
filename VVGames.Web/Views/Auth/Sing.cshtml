@@ -21,7 +21,6 @@
             We missed you!
         </p>
 
-        <!-- ✅ форма с правильным методом и действием -->
         @using (Html.BeginForm("Sing", "Auth", FormMethod.Post))
         {
             <input type="text" name="credential" placeholder="Enter your username or email" required />
@@ -32,7 +31,6 @@
             <button type="submit">LOG IN</button>
         }
 
-        <!-- ❗ Выводим ошибки, если есть -->
         @if (ViewBag.Message != null)
         {
             <div class="alert alert-danger mt-2">@ViewBag.Message</div>
