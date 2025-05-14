@@ -19,9 +19,13 @@ namespace VVGames.BusinessLogic
         {
             return new BasketBL();
         }
-        public ProductBL GetProductBL()
+        public IProduct GetProductBL()
         {
             return new ProductBL();
+        }
+        public IAdmin GetAdminBL()
+        {
+            return new AdminBL();
         }
     }
 }

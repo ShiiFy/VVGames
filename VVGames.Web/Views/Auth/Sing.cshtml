@@ -2,6 +2,14 @@
     ViewData["Title"] = "Sing";
 }
 
+@if (Session["AuthMessage"] != null)
+{
+    <div id="authMessage" class="alert alert-warning text-center">
+        @Session["AuthMessage"]
+    </div>
+    Session["AuthMessage"] = null;
+}
+
 <div class="page-heading header-text">
     <div class="container">
         <div class="row">
@@ -47,3 +55,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    setTimeout(function () {
+        var msg = document.getElementById("authMessage");
+        if (msg) {
+            msg.style.opacity = "0";
+            setTimeout(function () {
+                msg.style.display = "none";
+            }, 500); // дождаться плавного скрытия
+        }
+    }, 2000); // показать 2 секунды
+</script>

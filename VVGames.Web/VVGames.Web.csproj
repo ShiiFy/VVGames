@@ -223,6 +223,8 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Filters\AdminsAttribute.cs" />
+    <Compile Include="Filters\UsersAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,6 +288,9 @@
     <Content Include="Views\Auth\AccessDenied.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Admin\UserManagement.cshtml" />
+    <Content Include="Views\Admin\ProductManagement.cshtml" />
+    <Content Include="Views\Admin\AddGame.cshtml" />
+    <Content Include="Views\Admin\EditGame.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -296,7 +301,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VVGames.BusinessLogic\VVGames.BusinessLogic.csproj">
