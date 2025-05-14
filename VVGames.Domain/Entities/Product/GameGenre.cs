@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace VVGames.Domain.Entities.Product
 {
-    public class GameGenre
+    [Flags]
+    public enum GameGenre
     {
-        public string Strategii { get; set; }
-        public string Shoter { get; set; }
-        public string RPG { get; set; }
-        public string Simulator { get; set; }
+        None = 0,
+        Strategii = 1,
+        Shoter = 2,
+        RPG = 4,
+        Simulator = 8
     }
 }

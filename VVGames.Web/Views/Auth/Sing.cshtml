@@ -2,6 +2,14 @@
     ViewData["Title"] = "Sing";
 }
 
+@if (Session["AuthMessage"] != null)
+{
+    <div id="authMessage" class="alert alert-warning text-center">
+        @Session["AuthMessage"]
+    </div>
+    Session["AuthMessage"] = null;
+}
+
 <div class="page-heading header-text">
     <div class="container">
         <div class="row">
@@ -21,7 +29,6 @@
             We missed you!
         </p>
 
-        <!-- ✅ форма с правильным методом и действием -->
         @using (Html.BeginForm("Sing", "Auth", FormMethod.Post))
         {
             <input type="text" name="credential" placeholder="Enter your username or email" required />
@@ -32,7 +39,6 @@
             <button type="submit">LOG IN</button>
         }
 
-        <!-- ❗ Выводим ошибки, если есть -->
         @if (ViewBag.Message != null)
         {
             <div class="alert alert-danger mt-2">@ViewBag.Message</div>
@@ -49,3 +55,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    setTimeout(function () {
+        var msg = document.getElementById("authMessage");
+        if (msg) {
+            msg.style.opacity = "0";
+            setTimeout(function () {
+                msg.style.display = "none";
+            }, 500); // дождаться плавного скрытия
+        }
+    }, 2000); // показать 2 секунды
+</script>

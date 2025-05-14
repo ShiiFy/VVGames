@@ -11,9 +11,7 @@ namespace VVGames.BusinessLogic.Interface
     {
         ULoginSuccess Login(ULoginData loginData); //Вход пользователя
         URegistrSuccess Register(URegistrData registrData); //Регистрация пользователя
-        bool IsAuthenticated(int userId); //проверка зарегистрирован ли пользователь
-        UUsers GetCurrentUser(int userId); //получение информации о пользователе
-        bool ChangePassword(int userId, string oldPassword, string newPassword); //Сменя пароля
+        UUsers GetCurrentUser(int userId); //получение информации о пользователей
         bool UpdateUser(int userId, UUserUpdate update); //Обновление данных
     }
 }

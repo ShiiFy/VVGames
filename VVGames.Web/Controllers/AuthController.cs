@@ -8,13 +8,14 @@ using VVGames.BusinessLogic.DBModel;
 using VVGames.Domain.Entities.Product;
 using VVGames.Domain.Entities.User;
 using VVGames.Domain.Enums;
+using VVGames.Web.Filters;
 
 namespace VVGames.Web.Controllers
 {
     public class AuthController : Controller
     {
         private readonly SessionBL _sessionBL = new SessionBL();
-        // GET: Auth
+
         [HttpGet]
         public ActionResult Reg() => View();
 
@@ -47,7 +48,6 @@ namespace VVGames.Web.Controllers
             return RedirectToAction("Sing");
         }
 
-
         [HttpGet]
         public ActionResult Sing() => View();
 
@@ -76,6 +76,7 @@ namespace VVGames.Web.Controllers
             return RedirectToAction("UserProfile");
         }
 
+        [Users]
         [HttpGet]
         public ActionResult UserProfile()
         {
@@ -90,6 +91,7 @@ namespace VVGames.Web.Controllers
             return View(user); 
         }
 
+        [Users]
         [HttpGet]
         public ActionResult EditProfile()
         {
@@ -127,5 +129,6 @@ namespace VVGames.Web.Controllers
             Session.Clear();
             return RedirectToAction("Sing", "Auth"); 
         }
+        public ActionResult AccessDenied() => View();
     }
 }

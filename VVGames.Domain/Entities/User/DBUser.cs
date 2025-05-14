@@ -17,7 +17,7 @@ namespace VVGames.Domain.Entities.User
 
         [Required]
         [Display(Name = "Username")]
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "Password cannot be longer than 30 characters.")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Username cannot be longer than 30 characters.")]
         public string Username { get; set; }
 
         [Display(Name = "Name")]
@@ -37,6 +37,9 @@ namespace VVGames.Domain.Entities.User
         [Display(Name = "Phone")]
         [StringLength(15, MinimumLength = 9)]
         public string PhoneNumber { get; set;}
+
+        [Display(Name = "User Blocked")]
+        public bool IsBlocked { get; set; } = false;
 
         public URole Level { get; set;}
 

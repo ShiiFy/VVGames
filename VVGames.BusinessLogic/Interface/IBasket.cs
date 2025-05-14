@@ -9,10 +9,10 @@ namespace VVGames.BusinessLogic.Interface
 {
     public interface IBasket
     {
-        List<Games> GetAllProduct(int UserID);
-        void AddProduct(int UserID, int ProductID, int countProduct);
-        void UpdateProduct(int UserID, int ProductID, int countProduct);
-        void RemoveProduct(int UserID, int ProductID);
-        void RemoveAll(int UserID);
+        List<Games> GetAllProduct(int userId); // получить список товаров пользователя
+        void AddProduct(int userId, int productId, int countProduct); // добавить товар(или увеличить)
+        void UpdateProduct(int userId, int productId, int countProduct); // изменить количество вручную
+        void RemoveProduct(int userId, int productId); // удалить один товар
+        void RemoveAll(int userId); // очистить всю корзину
     }
 }

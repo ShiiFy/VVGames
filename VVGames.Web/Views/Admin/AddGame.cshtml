@@ -1,0 +1,90 @@
+﻿@model VVGames.Domain.Entities.Product.DBGames
+@using VVGames.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Добавить игру";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-heading header-text">
+    <div class="container text-center">
+        <h3>Добавить новую игру</h3>
+        <span class="breadcrumb"><a href="@Url.Action("Dashboard", "Admin")">Админ</a> > Добавить игру</span>
+    </div>
+</div>
+
+<div class="contact-page section">
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-8 bg-light shadow-sm p-4 rounded">
+
+            @using (Html.BeginForm("AddGame", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(m => m.Articul)
+                    @Html.TextBoxFor(m => m.Articul, new { @class = "form-control", placeholder = "Артикул" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Название" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(m => m.Price)
+                    @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01", placeholder = "Цена" })
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label fw-bold">Жанры</label>
+                    <div class="d-flex flex-wrap">
+                        @{
+                            var allGenres = Enum.GetValues(typeof(GameGenre))
+                                                .Cast<GameGenre>()
+                                                .Where(g => g != GameGenre.None);
+                        }
+
+                        @foreach (var genre in allGenres)
+                        {
+                            <div class="form-check me-4">
+                                <input type="checkbox"
+                                       name="SelectedGenres"
+                                       value="@((int)genre)"
+                                       class="form-check-input"
+                                       id="genre_@((int)genre)" />
+                                <label class="form-check-label" for="genre_@((int)genre)">
+                                    @genre
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="imageFile">Изображение</label>
+                    <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4, placeholder = "Описание" })
+                </div>
+
+                <div class="form-group mb-4">
+                    @Html.LabelFor(m => m.ReleaseDate)
+                    @Html.TextBox("ReleaseDate",
+                        Model.ReleaseDate != DateTime.MinValue ?
+                            Model.ReleaseDate.ToString("yyyy-MM-dd") :
+                            new DateTime(2020, 1, 1).ToString("yyyy-MM-dd"),
+                        new { type = "date", @class = "form-control" })
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <a href="@Url.Action("ProductManagement", "Admin")" class="btn btn-secondary">Отмена</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
