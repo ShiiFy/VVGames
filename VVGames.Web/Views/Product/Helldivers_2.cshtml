@@ -27,7 +27,7 @@
                 <span class="price"><em>$40</em> $25</span>
                 <p>“The Galaxy’s Last Line of Offence. Enlist in the Helldivers and join the fight for freedom across a hostile galaxy in a fast, frantic, and ferocious third-person shooter.”</p>
                 <form id="qty" action="#">
-                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
+                    <input type="number" name="qty" class="form-control" id="quantity" min="1" value="1" />
                     <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
                 </form>
                 <ul>
@@ -54,7 +54,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
                                 </li>
-                                
+
                             </ul>
                         </div>
                         <div class="tab-content" id="myTabContent">
@@ -66,7 +66,7 @@
                                 <p></p>
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                 
+
                             </div>
                         </div>
                     </div>
@@ -89,3 +89,7 @@
                 <div class="main-button">
                     <a href="@Url.Action("Shop", "Home")">View All</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
