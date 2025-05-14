@@ -12,6 +12,24 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var $grid = $('.trending-box').isotope({
+            itemSelector: '.trending-items',
+            layoutMode: 'fitRows'
+        });
+
+        $('.trending-filter a').click(function (e) {
+            e.preventDefault();
+            $('.trending-filter a').removeClass('is_active');
+            $(this).addClass('is_active');
+
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
+    });
+</script>
 
 <div class="section trending">
     <div class="container">
@@ -33,119 +51,108 @@
             </li>
         </ul>
         <div class="row trending-box">
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sho">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/hoi4.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$36</em>$24</span>
+                        <a href="@Url.Action("Hearts_of_Iron_IV", "Product")">
+<img src="/content/images/hoi4.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$30</em>$10</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
+                        <span class="category">Strategy</span>
+                        <h4>Herats of Iron IV</h4>
+                        <a href="@Url.Action("Hearts_of_Iron_IV", "Product")"></a>
+                            <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/civilization.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$32</em>$22</span>
+                        <a href="@Url.Action("Civilithation", "Product")">
+<img src="/content/images/civilization.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$60</em>$30</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">Strategy</span>
+                        <h4>Civilization VII</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sho rpg sim">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sho ">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-03.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$45</em>$30</span>
+                        <a href="@Url.Action("Call_of_Duty", "Product")">
+<img src="~/content/images/games/CoD_MV3.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$28</em>$22</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">Shooter</span>
+                        <h4>CoD MV3</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sim">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-04.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$32</em>$22</span>
+                        <a href="@Url.Action("Forza_Horizon_5", "Product")">
+<img src="~/content/images/games/Forza_Horizon_5.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$32</em>$15</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">Simularot</span>
+                        <h4>Forza Horizon 5</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac sho">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-03.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$38</em>$26</span>
+                        <a href="@Url.Action("Helldivers_2", "Product")">
+<img src="~/content/images/games/Helldivers.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$40</em>$25</span>
                     </div>
                     <div class="down-content">
                         <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <h4>Helldivers 2</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rpg adv">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6  sho">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-01.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$30</em>$20</span>
+                        <a href="@Url.Action("Rust", "Product")">
+<img src="~/content/images/games/Rust.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$20</em>$10</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">Shooter</span>
+                        <h4>Rust</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rpg str">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rpg rpg">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-04.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$32</em>$22</span>
+                        <a href="@Url.Action("Oblivion", "Product")">
+<img src="~/content/images/games/Oblivion.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$35</em>$25</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rpg sho">
-                <div class="item">
-                    <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-02.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$32</em>$22</span>
-                    </div>
-                    <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rpg">
-                <div class="item">
-                    <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-03.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$28</em>$20</span>
-                    </div>
-                    <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">RPG</span>
+                        <h4>The Elder Scrolls IV: Oblivion Remastered</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
@@ -153,38 +160,74 @@
             <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rpg">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-04.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$26</em>$18</span>
+                        <a href="@Url.Action("Kingdom", "Product")">
+<img src="~/content/images/games/Kingdom.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$45</em>$25</span>
                     </div>
                     <div class="down-content">
-                        <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <span class="category">RPG</span>
+                        <h4>Kingdom Come: Deliverance II</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sho">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv sho">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-01.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$32</em>$24</span>
+                        <a href="@Url.Action("Warhammer", "Product")">
+<img src="~/content/images/games/Warhammer.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$40</em>$20</span>
                     </div>
                     <div class="down-content">
                         <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <h4>Warhammer 40,000: Space Marine 2</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sim">
                 <div class="item">
                     <div class="thumb">
-                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><img src="/content/images/trending-02.jpg" alt="" class="categories__image"></a>
-                        <span class="price"><em>$45</em>$30</span>
+                        <a href="@Url.Action("NBA_K25", "Product")">
+<img src="~/content/images/games/NBA.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$20</em>$10</span>
+                    </div>
+                    <div class="down-content">
+                        <span class="category">Simulator</span>
+                        <h4>NBA 2K25</h4>
+                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sim">
+                <div class="item">
+                    <div class="thumb">
+                        <a href="@Url.Action("Schedule", "Product")">
+<img src="~/content/images/games/schedule.png" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$25</em>$10</span>
+                    </div>
+                    <div class="down-content">
+                        <span class="category">Simulator</span>
+                        <h4>Schedule I</h4>
+                        <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 sim">
+                <div class="item">
+                    <div class="thumb">
+                        <a href="@Url.Action("Stone_Simulator", "Product")">
+<img src="~/content/images/games/Stone.jpg" alt="" class="categories__image">
+                        </a>
+                        <span class="price"><em>$10</em>$5</span>
                     </div>
                     <div class="down-content">
                         <span class="category">Action</span>
-                        <h4>Assasin Creed</h4>
+                        <h4>Stone Simulator</h4>
                         <a asp-area="" asp-controller="Home" asp-action="Product_detales"><i class="fa fa-shopping-bag"></i></a>
                     </div>
                 </div>

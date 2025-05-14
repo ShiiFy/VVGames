@@ -39,6 +39,26 @@ namespace VVGames.Web.Controllers
         {
             return View();
         }
+        public ActionResult NBA_K25()
+        {
+            return View();
+        }
+        public ActionResult Rust()
+        {
+            return View();
+        }
+        public ActionResult Forza_Horizon_5()
+        {
+            return View();
+        }
+        public ActionResult Schedule()
+        {
+            return View();
+        }
+        public ActionResult Stone_Simulator()
+        {
+            return View();
+        }
     }
 
 }

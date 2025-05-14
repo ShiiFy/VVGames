@@ -27,7 +27,7 @@
                 <span class="price"><em>$40</em> $25</span>
                 <p>“The Galaxy’s Last Line of Offence. Enlist in the Helldivers and join the fight for freedom across a hostile galaxy in a fast, frantic, and ferocious third-person shooter.”</p>
                 <form id="qty" action="#">
-                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
+                    <input type="number" name="qty" class="form-control" id="quantity" min="1" value="1" />
                     <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
                 </form>
                 <ul>
@@ -54,9 +54,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
-                                </li>
+
                             </ul>
                         </div>
                         <div class="tab-content" id="myTabContent">
@@ -68,7 +66,7 @@
                                 <p></p>
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean shorts edison bulb poutine next level humblebrag la croix adaptogen. <br><br>Hashtag poke literally locavore, beard marfa kogi bruh artisan succulents seitan tonx waistcoat chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of bitters asymmetrical gluten-free art party raw denim chillwave tousled try-hard succulents street art.</p>
+
                             </div>
                         </div>
                     </div>
@@ -89,5 +87,9 @@
             </div>
             <div class="col-lg-6">
                 <div class="main-button">
-                    <a href="shop.html">View All</a>
+                    <a href="@Url.Action("Shop", "Home")">View All</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
