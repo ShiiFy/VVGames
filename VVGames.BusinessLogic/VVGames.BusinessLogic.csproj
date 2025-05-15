@@ -59,14 +59,30 @@
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\BaseUserApi.cs" />
+    <Compile Include="Core\BasketApi.cs" />
     <Compile Include="Core\ProductApi.cs" />
     <Compile Include="Core\UserApi.cs" />
+    <Compile Include="DBModel\BasketContext.cs" />
     <Compile Include="DBModel\GameContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interface\IAdmin.cs" />
     <Compile Include="Interface\IBasket.cs" />
     <Compile Include="Interface\IProduct.cs" />
     <Compile Include="Interface\ISession.cs" />
+    <Compile Include="MigrationsBasket\202505150608348_CreateBasketTable.cs" />
+    <Compile Include="MigrationsBasket\202505150608348_CreateBasketTable.Designer.cs">
+      <DependentUpon>202505150608348_CreateBasketTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigrationsBasket\Configuration.cs" />
+    <Compile Include="MigrationsUser\202505122046131_InitialCreate.cs" />
+    <Compile Include="MigrationsUser\202505122046131_InitialCreate.Designer.cs">
+      <DependentUpon>202505122046131_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigrationsUser\202505150551210_UpdateUsernameValidation.cs" />
+    <Compile Include="MigrationsUser\202505150551210_UpdateUsernameValidation.Designer.cs">
+      <DependentUpon>202505150551210_UpdateUsernameValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigrationsUser\Configuration.cs" />
     <Compile Include="Migrations\202505132034396_InitialCreate.cs" />
     <Compile Include="Migrations\202505132034396_InitialCreate.Designer.cs">
       <DependentUpon>202505132034396_InitialCreate.cs</DependentUpon>
@@ -93,6 +109,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MigrationsBasket\202505150608348_CreateBasketTable.resx">
+      <DependentUpon>202505150608348_CreateBasketTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigrationsUser\202505122046131_InitialCreate.resx">
+      <DependentUpon>202505122046131_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigrationsUser\202505150551210_UpdateUsernameValidation.resx">
+      <DependentUpon>202505150551210_UpdateUsernameValidation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505132034396_InitialCreate.resx">
       <DependentUpon>202505132034396_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

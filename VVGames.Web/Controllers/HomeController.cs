@@ -15,8 +15,5 @@ namespace VVGames.Web.Controllers
         public ActionResult Contact() => View();
         public ActionResult Wheel() =>View();
 
-        [Users]
-        public ActionResult Basket() => View();
-
     }
 }

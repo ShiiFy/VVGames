@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VVGames.BusinessLogic.Core;
+using VVGames.BusinessLogic.DBModel;
 using VVGames.BusinessLogic.Interface;
 using VVGames.Domain.Entities.Product;
 
@@ -11,6 +12,7 @@ namespace VVGames.BusinessLogic.BL
 {
     public class ProductBL : ProductApi, IProduct
     {
+
         public bool AddGame(DBGames model)
         {
             if (string.IsNullOrWhiteSpace(model.Name) || model.Price <= 0)

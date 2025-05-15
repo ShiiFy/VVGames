@@ -204,6 +204,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Filters\AdminsAttribute.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BasketItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -254,7 +256,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Basket.cshtml" />
     <Content Include="Views\Home\Wheel.cshtml" />
     <Content Include="Views\Auth\Sing.cshtml" />
     <Content Include="Views\Auth\Reg.cshtml" />
@@ -280,6 +281,7 @@
     <Content Include="Views\Admin\EditGame.cshtml" />
     <Content Include="Views\Shop\Shop.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\Basket\Basket.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -289,7 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VVGames.BusinessLogic\VVGames.BusinessLogic.csproj">

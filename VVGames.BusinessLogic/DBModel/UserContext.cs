@@ -13,11 +13,7 @@ namespace VVGames.BusinessLogic.DBModel
 {
     public class UserContext : DbContext
     {
-        public UserContext() :
-            base("name=VVGames")
-        {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UserContext>());
-        }
+        public UserContext() : base("name=VVGames") { }
 
         public virtual DbSet<DBUser> Users { get; set; }
     }

@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using VVGames.Domain.Entities.Product;
+using System.Web;
 
-namespace VVGames.Domain.Entities.Basket
+namespace VVGames.Web.Models
 {
-    public class Basket
+    public class BasketItemViewModel
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
+        public decimal TotalPrice => UnitPrice * Quantity;
     }
 }

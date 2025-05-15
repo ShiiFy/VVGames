@@ -29,6 +29,6 @@ namespace VVGames.Domain.Entities.Basket
         public virtual DBUser User { get; set; }
 
         [ForeignKey("ProductId")]
-        public virtual Games Product { get; set; }
+        public virtual DBGames Product { get; set; }
     }
 }
