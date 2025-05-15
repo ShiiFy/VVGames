@@ -40,7 +40,7 @@
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
                                 <li><a href="@Url.Action("Index", "Home")" class="nav-link text-center d-flex align-items-center justify-content-center">Home</a></li>
-                                <li><a href="@Url.Action("Shop", "Home")" class="nav-link d-flex align-items-center justify-content-center">V&V Games</a></li>
+                                <li><a href="@Url.Action("Shop", "Shop")" class="nav-link d-flex align-items-center justify-content-center">V&V Games</a></li>
                                 <li><a href="@Url.Action("Wheel", "Home")" class="nav-link d-flex align-items-center justify-content-center">Wheel of fortune</a> </li>
                                 <li><a href="@Url.Action("Contact", "Home")" class="nav-link d-flex align-items-center justify-content-center">Contact Us</a></li>
                                 @if (Session["Role"] != null && (Session["Role"].ToString() == "Admin" || Session["Role"].ToString() == "SuperAdmin"))

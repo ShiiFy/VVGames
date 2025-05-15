@@ -11,7 +11,7 @@ namespace VVGames.Domain.Entities.Product
     {
         None = 0,
         Strategii = 1,
-        Shoter = 2,
+        Shooter = 2,
         RPG = 4,
         Simulator = 8
     }

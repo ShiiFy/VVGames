@@ -77,5 +77,24 @@ namespace VVGames.BusinessLogic.Core
                 }
             }
         }
+        public List<DBGames> GetGamesPagedAction(int page, int pageSize)
+        {
+            using (var db = new GameContext())
+            {
+                return db.Games
+                         .OrderBy(g => g.Id)
+                         .Skip((page - 1) * pageSize)
+                         .Take(pageSize)
+                         .ToList();
+            }
+        }
+        public int GetTotalGameCountAction()
+        {
+            using (var db = new GameContext())
+            {
+                return db.Games.Count();
+            }
+        }
+
     }
 }

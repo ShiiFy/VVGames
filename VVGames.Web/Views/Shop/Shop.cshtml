@@ -1,0 +1,96 @@
+﻿@model List<VVGames.Domain.Entities.Product.DBGames>
+@using VVGames.Domain.Entities.Product
+@{
+    ViewData["Title"] = "Shop";
+    var currentPage = ViewBag.CurrentPage as int? ?? 1;
+    var totalPages = ViewBag.TotalPages as int? ?? 1;
+}
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>V&V Games</h3>
+                <span class="breadcrumb"><a href="#">Home</a> > V&V Games</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var $grid = $('.trending-box').isotope({
+            itemSelector: '.trending-items',
+            layoutMode: 'fitRows'
+        });
+
+        $('.trending-filter a').click(function (e) {
+            e.preventDefault();
+            $('.trending-filter a').removeClass('is_active');
+            $(this).addClass('is_active');
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
+    });
+</script>
+
+<div class="section trending">
+    <div class="container">
+        <ul class="trending-filter">
+            <li><a class="is_active" href="#!" data-filter="*">All games</a></li>
+            <li><a href="#!" data-filter=".sho">Shooters</a></li>
+            <li><a href="#!" data-filter=".str">Strategy</a></li>
+            <li><a href="#!" data-filter=".rpg">RPG</a></li>
+            <li><a href="#!" data-filter=".sim">Simulator</a></li>
+        </ul>
+
+        <div class="row trending-box">
+            @foreach (var game in Model)
+            {
+                var genreClasses = "";
+                if (game.Genres.HasFlag(GameGenre.Strategii)) { genreClasses += " str"; }
+                if (game.Genres.HasFlag(GameGenre.Shooter)) { genreClasses += " sho"; }
+                if (game.Genres.HasFlag(GameGenre.RPG)) { genreClasses += " rpg"; }
+                if (game.Genres.HasFlag(GameGenre.Simulator)) { genreClasses += " sim"; }
+
+                <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items @genreClasses">
+                    <div class="item">
+                        <div class="thumb">
+                            <a href="@Url.Action("Details", "Shop", new { id = game.Id })">
+                                <img src="@game.ImageUrl" alt="@game.Name" class="categories__image" style="aspect-ratio: 1 / 1; object-fit: cover;" />
+                            </a>
+                            <span class="price">@game.Price.ToString("F2") $</span>
+                        </div>
+                        <div class="down-content">
+                            <span class="category">@game.Genres</span>
+                            <h4>@game.Name</h4>
+                            <a href="@Url.Action("Details", "Shop", new { id = game.Id })"><i class="fa fa-shopping-bag"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pagination justify-content-center">
+                    @if (currentPage > 1)
+                    {
+                        <li><a href="@Url.Action("Shop", "Shop", new { page = currentPage - 1 })"> &lt; </a></li>
+                    }
+
+                    @for (int i = 1; i <= totalPages; i++)
+                    {
+                        <li><a class="@(i == currentPage ? "is_active" : "")" href="@Url.Action("Shop", "Shop", new { page = i })">@i</a></li>
+                    }
+
+                    @if (currentPage < totalPages)
+                    {
+                        <li><a href="@Url.Action("Shop", "Shop", new { page = currentPage + 1 })"> &gt; </a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

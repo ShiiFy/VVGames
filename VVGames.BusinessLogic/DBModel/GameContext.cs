@@ -10,10 +10,7 @@ namespace VVGames.BusinessLogic.DBModel
 {
     public class GameContext : DbContext
     {
-        public GameContext() : base("name=VVGames")
-        {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<GameContext>());
-        }
+        public GameContext() : base("name=VVGames") { }
 
         public DbSet<DBGames> Games { get; set; }
     }

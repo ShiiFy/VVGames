@@ -56,5 +56,7 @@ namespace VVGames.BusinessLogic.BL
             return true;
         }
         public DBGames GetGameById(int id) => GetGameByIdAction(id);
+        public List<DBGames> GetGamesPaged(int page, int pageSize) => GetGamesPagedAction(page, pageSize);
+        public int GetTotalGameCount() => GetTotalGameCountAction();
     }
 }

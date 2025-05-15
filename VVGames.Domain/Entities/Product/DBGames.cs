@@ -20,7 +20,7 @@ namespace VVGames.Domain.Entities.Product
         public string Articul { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(80)]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
@@ -37,7 +37,11 @@ namespace VVGames.Domain.Entities.Product
         [Display(Name = "Изображение (URL)")]
         public string ImageUrl { get; set; }
 
+        [Display(Name = "Краткое описание")]
         [StringLength(300)]
+        public string ShortDescription { get; set; }
+
+        [StringLength(1500)]
         [Display(Name = "Описание")]
         public string Description { get; set; }
 

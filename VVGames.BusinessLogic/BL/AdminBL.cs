@@ -76,6 +76,9 @@ namespace VVGames.BusinessLogic.BL
                 model.ImageUrl = "/Content/images/games/" + fileName;
             }
 
+            model.ShortDescription = model.ShortDescription?.Trim();
+            model.Description = model.Description?.Trim();
+
             return _productBL.AddGame(model);
         }
         public bool DeleteGame(int id) => _productBL.DeleteGame(id);
@@ -118,6 +121,7 @@ namespace VVGames.BusinessLogic.BL
             // Если поле не изменено — подставляем из базы
             model.Articul = string.IsNullOrWhiteSpace(model.Articul) ? existingGame.Articul : model.Articul;
             model.Name = string.IsNullOrWhiteSpace(model.Name) ? existingGame.Name : model.Name;
+            model.ShortDescription = string.IsNullOrWhiteSpace(model.ShortDescription) ? existingGame.ShortDescription : model.ShortDescription.Trim();
             model.Description = string.IsNullOrWhiteSpace(model.Description) ? existingGame.Description : model.Description;
             model.ReleaseDate = model.ReleaseDate == default ? existingGame.ReleaseDate : model.ReleaseDate;
             model.Price = model.Price <= 0 ? existingGame.Price : model.Price;

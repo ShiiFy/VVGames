@@ -32,6 +32,11 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    @Html.LabelFor(m => m.ShortDescription)
+                    @Html.TextAreaFor(m => m.ShortDescription, new { @class = "form-control", rows = 2 })
+                </div>
+
+                <div class="form-group mb-3">
                     @Html.LabelFor(m => m.Price)
                     @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01", placeholder = "Цена" })
                 </div>
