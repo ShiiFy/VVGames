@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using VVGames.BusinessLogic.BL;
+using VVGames.Domain.Entities.Product;
+using VVGames.Web.Models;
 
 namespace VVGames.Web.Controllers
 {
@@ -57,10 +59,20 @@ namespace VVGames.Web.Controllers
             int totalItems = _productBL.GetTotalGameCount();
             int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
 
+            var viewModel = games.Select(g => new GameViewModel
+            {
+                Id = g.Id,
+                Articul = g.Articul,
+                Name = g.Name,
+                Genres = g.Genres.ToString(),
+                Price = g.Price,
+                ImageUrl = g.ImageUrl
+            }).ToList();
+
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
 
-            return View(games);
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -70,7 +82,20 @@ namespace VVGames.Web.Controllers
             if (game == null)
                 return RedirectToAction("Shop");
 
-            return View(game);
+            var viewModel = new GameDetailsViewModel
+            {
+                Id = game.Id,
+                Articul = game.Articul,
+                Name = game.Name,
+                Genres = game.Genres.ToString(),
+                Price = game.Price,
+                ImageUrl = game.ImageUrl,
+                ShortDescription = game.ShortDescription,
+                Description = game.Description,
+                ReleaseDate = game.ReleaseDate
+            };
+
+            return View(viewModel);
         }
     }
 

@@ -59,8 +59,6 @@ namespace VVGames.BusinessLogic.BL
 
             SaveAction(); 
         }
-
-        // 2. Обновить количество конкретного товара
         public void UpdateProduct(int userId, int productId, int countProduct)
         {
             var entry = GetByUserAction(userId).FirstOrDefault(b => b.ProductId == productId);
@@ -91,8 +89,6 @@ namespace VVGames.BusinessLogic.BL
 
             SaveAction();
         }
-
-        // 3. Удалить товар из корзины
         public void RemoveProduct(int userId, int productId)
         {
             var entry = GetByUserAction(userId).FirstOrDefault(b => b.ProductId == productId);
@@ -103,8 +99,6 @@ namespace VVGames.BusinessLogic.BL
                 SaveAction();
             }
         }
-
-        // 4. Очистить всю корзину пользователя
         public void RemoveAll(int userId)
         {
             var entries = GetByUserAction(userId).ToList();

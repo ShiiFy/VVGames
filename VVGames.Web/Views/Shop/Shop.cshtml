@@ -1,5 +1,4 @@
-﻿@model List<VVGames.Domain.Entities.Product.DBGames>
-@using VVGames.Domain.Entities.Product
+﻿@model List<VVGames.Web.Models.GameViewModel>
 @{
     ViewData["Title"] = "Shop";
     var currentPage = ViewBag.CurrentPage as int? ?? 1;
@@ -49,10 +48,10 @@
             @foreach (var game in Model)
             {
                 var genreClasses = "";
-                if (game.Genres.HasFlag(GameGenre.Strategii)) { genreClasses += " str"; }
-                if (game.Genres.HasFlag(GameGenre.Shooter)) { genreClasses += " sho"; }
-                if (game.Genres.HasFlag(GameGenre.RPG)) { genreClasses += " rpg"; }
-                if (game.Genres.HasFlag(GameGenre.Simulator)) { genreClasses += " sim"; }
+                if (game.Genres.Contains("Strategii")) { genreClasses += " str"; }
+                if (game.Genres.Contains("Shooter")) { genreClasses += " sho"; }
+                if (game.Genres.Contains("RPG")) { genreClasses += " rpg"; }
+                if (game.Genres.Contains("Simulator")) { genreClasses += " sim"; }
 
                 <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items @genreClasses">
                     <div class="item">

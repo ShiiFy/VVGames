@@ -1,5 +1,5 @@
-﻿@model VVGames.Domain.Entities.Product.DBGames
-@using VVGames.Domain.Entities.Product
+﻿@model VVGames.Web.Models.AddGameViewModel
+@using VVGames.Web.Models
 
 @{
     ViewBag.Title = "Добавить игру";
@@ -45,9 +45,9 @@
                     <label class="form-label fw-bold">Жанры</label>
                     <div class="d-flex flex-wrap">
                         @{
-                            var allGenres = Enum.GetValues(typeof(GameGenre))
-                                                .Cast<GameGenre>()
-                                                .Where(g => g != GameGenre.None);
+                            var allGenres = Enum.GetValues(typeof(GameGenreViewModel))
+                                                .Cast<GameGenreViewModel>()
+                                                .Where(g => g != GameGenreViewModel.None);
                         }
 
                         @foreach (var genre in allGenres)

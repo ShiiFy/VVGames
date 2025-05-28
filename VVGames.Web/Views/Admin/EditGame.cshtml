@@ -1,5 +1,5 @@
-﻿@model VVGames.Domain.Entities.Product.DBGames
-@using VVGames.Domain.Entities.Product
+﻿@model VVGames.Web.Models.EditGameViewModel
+@using VVGames.Web.Models
 
 @{
     ViewBag.Title = "Редактирование игры";
@@ -50,7 +50,7 @@
                     <label class="form-label fw-bold">Жанры</label>
                     <div class="d-flex flex-wrap">
                         @{
-                            var allGenres = Enum.GetValues(typeof(GameGenre)).Cast<GameGenre>().Where(g => g != GameGenre.None);
+                            var allGenres = Enum.GetValues(typeof(GameGenreViewModel)).Cast<GameGenreViewModel>().Where(g => g != GameGenreViewModel.None);
                         }
 
                         @foreach (var genre in allGenres)
@@ -61,13 +61,13 @@
                                        value="@((int)genre)"
                                        class="form-check-input"
                                        id="genre_@((int)genre)"
-                                       @(Model.Genres.HasFlag(genre) ? "checked" : "") />
-
+                                       @(Model.SelectedGenres != null && Model.SelectedGenres.Contains((int)genre) ? "checked" : "") />
                                 <label class="form-check-label" for="genre_@((int)genre)">
                                     @genre
                                 </label>
                             </div>
                         }
+
                     </div>
                 </div>
 

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using VVGames.BusinessLogic.BL;
 using VVGames.Domain.Entities.Product;
 using VVGames.Web.Filters;
+using VVGames.Web.Models;
 
 namespace VVGames.Web.Controllers
 {
@@ -21,8 +22,19 @@ namespace VVGames.Web.Controllers
         [HttpGet]
         public ActionResult UserManagement()
         {
-            var users = _adminBL.GetAllUsers(); 
-            return View(users); 
+            var users = _adminBL.GetAllUsers();
+
+            var model = users.Select(u => new UserTableItemViewModel
+            {
+                Id = u.Id,
+                Username = u.Username,
+                Email = u.Email,
+                Role = u.Role,
+                LastDateTime = u.LastDateTime,
+                IsBlocked = u.IsBlocked
+            }).ToList();
+
+            return View(model); 
         }
 
         [HttpPost]
@@ -53,17 +65,39 @@ namespace VVGames.Web.Controllers
         [HttpGet]
         public ActionResult ProductManagement()
         {
-            var games = _adminBL.GetAllGames();
-            return View(games);
+            var dbGames = _adminBL.GetAllGames();
+
+            var viewModel = dbGames.Select(g => new GameTableItemViewModel
+            {
+                Id = g.Id,
+                Articul = g.Articul,
+                Name = g.Name,
+                Price = g.Price,
+                Genres = g.Genres.ToString(),
+                ReleaseDate = g.ReleaseDate,
+                ImageUrl = g.ImageUrl
+            }).ToList();
+
+            return View(dbGames);
         }
 
         [HttpGet]
         public ActionResult AddGame() => View(new DBGames());
 
         [HttpPost]
-        public ActionResult AddGame(DBGames model, int[] SelectedGenres, HttpPostedFileBase imageFile)
+        public ActionResult AddGame(AddGameViewModel model)
         {
-            var success = _adminBL.AddGame(model, SelectedGenres, imageFile);
+            var dbModel = new DBGames
+            {
+                Articul = model.Articul,
+                Name = model.Name,
+                ShortDescription = model.ShortDescription,
+                Price = model.Price,
+                Description = model.Description,
+                ReleaseDate = model.ReleaseDate,
+            };
+
+            var success = _adminBL.AddGame(dbModel, model.SelectedGenres?.ToArray(), model.ImageFile);
 
             if (!success)
             {
@@ -98,9 +132,20 @@ namespace VVGames.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditGame(DBGames model, int[] SelectedGenres, HttpPostedFileBase imageFile)
+        public ActionResult EditGame(EditGameViewModel model, int[] SelectedGenres, HttpPostedFileBase imageFile)
         {
-            var success = _adminBL.UpdateGame(model, SelectedGenres, imageFile);
+            var dbModel = new DBGames
+            {
+                Id = model.Id,
+                Articul = model.Articul,
+                Name = model.Name,
+                ShortDescription = model.ShortDescription,
+                Price = model.Price,
+                Description = model.Description,
+                ReleaseDate = model.ReleaseDate,
+            };
+
+            var success = _adminBL.UpdateGame(dbModel, SelectedGenres ?? new int[0], imageFile);
 
             if (!success)
             {

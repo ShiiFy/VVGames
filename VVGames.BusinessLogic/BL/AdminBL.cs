@@ -79,7 +79,7 @@ namespace VVGames.BusinessLogic.BL
             model.ShortDescription = model.ShortDescription?.Trim();
             model.Description = model.Description?.Trim();
 
-            return _productBL.AddGame(model);
+            return _productBL.AddProduct(model);
         }
         public bool DeleteGame(int id) => _productBL.DeleteGame(id);
         public List<DBGames> GetAllGames() => _productBL.GetGames();
@@ -126,7 +126,7 @@ namespace VVGames.BusinessLogic.BL
             model.ReleaseDate = model.ReleaseDate == default ? existingGame.ReleaseDate : model.ReleaseDate;
             model.Price = model.Price <= 0 ? existingGame.Price : model.Price;
 
-            return _productBL.UpdateGame(model);
+            return _productBL.UpdateProduct(model);
         }
 
     }

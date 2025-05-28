@@ -13,7 +13,7 @@ namespace VVGames.BusinessLogic.BL
     public class ProductBL : ProductApi, IProduct
     {
 
-        public bool AddGame(DBGames model)
+        public bool AddProduct(DBGames model)
         {
             if (string.IsNullOrWhiteSpace(model.Name) || model.Price <= 0)
                 return false;
@@ -28,7 +28,7 @@ namespace VVGames.BusinessLogic.BL
         {
             return GetAllGamesAction();
         }
-        public bool UpdateGame(DBGames updatedData)
+        public bool UpdateProduct(DBGames updatedData)
         {
             var game = GetGameByIdAction(updatedData.Id);
             if (game == null)

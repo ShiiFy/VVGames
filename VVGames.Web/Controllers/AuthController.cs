@@ -9,6 +9,7 @@ using VVGames.Domain.Entities.Product;
 using VVGames.Domain.Entities.User;
 using VVGames.Domain.Enums;
 using VVGames.Web.Filters;
+using VVGames.Web.Models;
 
 namespace VVGames.Web.Controllers
 {
@@ -88,7 +89,17 @@ namespace VVGames.Web.Controllers
             if (user == null)
                 return RedirectToAction("Sing");
 
-            return View(user); 
+            var model = new UserProfileViewModel
+            {
+                Name = user.Name,
+                Username = user.Username,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Role = user.Role,
+                LoginDateTime = user.LoginDateTime
+            };
+
+            return View(model); 
         }
 
         [Users]
@@ -103,25 +114,48 @@ namespace VVGames.Web.Controllers
             if (user == null)
                 return RedirectToAction("Sing");
 
-            var model = new UUserUpdate
+            var viewModel = new EditProfileViewModel
             {
-                Username = user.Username,
                 Name = user.Name,
+                Username = user.Username,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber
             };
 
-            return View(model); 
+            return View(viewModel); 
         }
 
         [HttpPost]
-        public ActionResult UpdateProfile(UUserUpdate model)
+        public ActionResult UpdateProfile(EditProfileViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = "Ошибка валидации.";
+                return View("EditProfile", model);
+            }
+
             int userId = (int)Session["UserId"];
-            var success = _sessionBL.UpdateUser(userId, model);
 
-            TempData["Message"] = success ? "Профиль успешно обновлён." : "Ошибка: текущий пароль неверен.";
+            var updateModel = new UUserUpdate
+            {
+                Name = model.Name,
+                Username = model.Username,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                NewPassword = model.NewPassword,
+                ConfirmPassword = model.ConfirmPassword,
+                CurrentPassword = model.CurrentPassword
+            };
 
+            var success = _sessionBL.UpdateUser(userId, updateModel);
+
+            if (!success)
+            {
+                TempData["Message"] = "Ошибка: текущий пароль неверен.";
+                return View("EditProfile", model);
+            }
+
+            TempData["Message"] = "Профиль успешно обновлён.";
             return RedirectToAction("UserProfile");
         }
         public ActionResult Logout()
