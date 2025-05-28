@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VVGames.BusinessLogic.DBModel;
 using VVGames.Domain.Entities.User;
 using VVGames.Domain.Enums;

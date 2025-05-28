@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using VVGames.BusinessLogic.BL;
-using VVGames.BusinessLogic.DBModel;
+using VVGames.BusinessLogic;
 using VVGames.BusinessLogic.Interface;
 using VVGames.Domain.Entities.Basket;
 using VVGames.Web.Filters;
@@ -17,13 +14,9 @@ namespace VVGames.Web.Controllers
     {
         private readonly IBasket _basket;
         public BasketController()
-        : this(
-            new BasketBL(
-                new BasketContext(),
-                new ProductBL()
-            )
-          )
         {
+            var logic = new BusinesLogic();
+            _basket = logic.GetBasketBL();
         }
         public BasketController(IBasket basket)
         {

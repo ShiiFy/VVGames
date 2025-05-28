@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
-using VVGames.BusinessLogic.BL;
-using VVGames.Domain.Entities.Product;
+using VVGames.BusinessLogic;
+using VVGames.BusinessLogic.Interface;
 using VVGames.Web.Models;
 
 namespace VVGames.Web.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly ProductBL _productBL = new ProductBL();
+        private readonly IProduct _productBL;
+
+        public ShopController()
+        {
+            var logic = new BusinesLogic();
+            _productBL = logic.GetProductBL();
+        }
 
         [HttpGet]
         public ActionResult Call_of_Duty() => View();

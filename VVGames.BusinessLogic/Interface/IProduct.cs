@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using VVGames.Domain.Entities.Product;
 
 namespace VVGames.BusinessLogic.Interface
@@ -14,5 +10,7 @@ namespace VVGames.BusinessLogic.Interface
         bool UpdateProduct(DBGames updatedData); //Обновление данных игры
         bool DeleteGame(int id); //Удаление игры
         DBGames GetGameById(int id); //Получение игры по айди
+        List<DBGames> GetGamesPaged(int page, int pageSize); //
+        int GetTotalGameCount(); //
     }
 }

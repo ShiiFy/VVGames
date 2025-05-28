@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using VVGames.BusinessLogic.BL;
+using VVGames.BusinessLogic;
+using VVGames.BusinessLogic.Interface;
 using VVGames.Domain.Entities.Product;
 using VVGames.Web.Filters;
 using VVGames.Web.Models;
@@ -14,7 +12,13 @@ namespace VVGames.Web.Controllers
     [Admins]
     public class AdminController : Controller
     {
-        private readonly AdminBL _adminBL = new AdminBL();
+        private readonly IAdmin _adminBL;
+
+        public AdminController()
+        {
+            var logic = new BusinesLogic();
+            _adminBL = logic.GetAdminBL();
+        }
 
         [HttpGet]
         public ActionResult Dashboard() => View(); 

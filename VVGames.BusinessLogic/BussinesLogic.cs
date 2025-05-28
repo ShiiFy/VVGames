@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VVGames.BusinessLogic.BL;
+﻿using VVGames.BusinessLogic.BL;
 using VVGames.BusinessLogic.DBModel;
 using VVGames.BusinessLogic.Interface;
-using VVGames.Domain.Entities.Basket;
 
 namespace VVGames.BusinessLogic
 {
-    public class BussinesLogic
+    public class BusinesLogic
     {
         public ISession GetSessiionBL()
         {
@@ -19,6 +13,16 @@ namespace VVGames.BusinessLogic
         public IAdmin GetAdminBL()
         {
             return new AdminBL();
+        }
+        public IProduct GetProductBL()
+        {
+            return new ProductBL();
+        }
+        public IBasket GetBasketBL()
+        {
+            var context = new BasketContext();
+            var productBL = GetProductBL();
+            return new BasketBL(context, productBL);
         }
     }
 }

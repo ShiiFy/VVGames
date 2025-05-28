@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using VVGames.BusinessLogic.BL;
-using VVGames.BusinessLogic.DBModel;
-using VVGames.Domain.Entities.Product;
+using VVGames.BusinessLogic;
+using VVGames.BusinessLogic.Interface;
 using VVGames.Domain.Entities.User;
-using VVGames.Domain.Enums;
 using VVGames.Web.Filters;
 using VVGames.Web.Models;
 
@@ -15,7 +10,13 @@ namespace VVGames.Web.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly SessionBL _sessionBL = new SessionBL();
+        private readonly ISession _sessionBL;
+
+        public AuthController()
+        {
+            var logic = new BusinesLogic();
+            _sessionBL = logic.GetSessiionBL();
+        }
 
         [HttpGet]
         public ActionResult Reg() => View();
