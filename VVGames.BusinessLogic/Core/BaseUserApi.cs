@@ -42,5 +42,12 @@ namespace VVGames.BusinessLogic.Core
             using (var db = new UserContext())
                 return db.Users.Any(u => u.Email == email);
         }
+        protected bool IsFirstUser()
+        {
+            using (var db = new UserContext())
+            {
+                return !db.Users.Any(); 
+            }
+        }
     }
 }

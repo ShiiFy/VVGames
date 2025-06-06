@@ -77,6 +77,8 @@ namespace VVGames.BusinessLogic.BL
 
             var passwordHash = PasswordHelper.HashPassword(registrData.Password);
 
+            bool isFirstUser = IsFirstUser();
+
             var newUser = new DBUser
             {
                 Username = registrData.Username,
@@ -84,7 +86,7 @@ namespace VVGames.BusinessLogic.BL
                 PasswordHash = passwordHash,
                 Name = registrData.Name,
                 PhoneNumber = registrData.PhoneNumber,
-                Level = URole.User,
+                Level = isFirstUser ? URole.SuperAdmin : URole.User,
                 LoginDateTime = DateTime.Now,
                 LastDateTime = DateTime.Now
             };

@@ -82,7 +82,7 @@ namespace VVGames.Web.Controllers
                 ImageUrl = g.ImageUrl
             }).ToList();
 
-            return View(dbGames);
+            return View(viewModel);
         }
 
         [HttpGet]
