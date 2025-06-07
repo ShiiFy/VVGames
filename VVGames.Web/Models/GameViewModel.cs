@@ -13,5 +13,6 @@ namespace VVGames.Web.Models
         public string Genres { get; set; }
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
+        public string ShortDescription { get; set; }
     }
 }

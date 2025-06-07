@@ -18,3 +18,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+:root {
+    --vv-red-light: #ff7070; /* бледно-красный */
+    --vv-blue-main: #006aff; /* фирменный синий */
+}
+
+.btn-search {
+    background-color: var(--vv-red-light) !important;
+    border-color: var(--vv-red-light) !important;
+    color: #fff;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+
+    .btn-search:hover,
+    .btn-search:focus {
+        background-color: var(--vv-blue-main) !important;
+        border-color: var(--vv-blue-main) !important;
+        color: #fff;
+    }

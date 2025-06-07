@@ -85,6 +85,32 @@ namespace VVGames.BusinessLogic.Core
                          .ToList();
             }
         }
+
+        public List<DBGames> SearchGamesAction(string keyword)
+        {
+            if (string.IsNullOrWhiteSpace(keyword))
+                return GetAllGamesAction();   // показать всё при пустом запросе
+
+            keyword = keyword.Trim().ToLower();
+
+            using (var db = new GameContext())
+            {
+                // 1️⃣  Часть, которую EF умеет перевести в SQL
+                var preliminary = db.Games
+                                    .Where(g => g.Name.ToLower().Contains(keyword)
+                                             || g.ShortDescription.ToLower().Contains(keyword))
+                                    .ToList();               // ⚠️ выполняем запрос здесь!
+
+                // 2️⃣  Дофильтровываем Genres уже в CLR
+                return preliminary
+                       .Where(g => g.Genres.ToString().ToLower().Contains(keyword)
+                                || g.Name.ToLower().Contains(keyword)
+                                || g.ShortDescription.ToLower().Contains(keyword))
+                       .ToList();
+            }
+        }
+
+
         public int GetTotalGameCountAction()
         {
             using (var db = new GameContext())

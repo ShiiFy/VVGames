@@ -11,10 +11,11 @@
                     <h2>BEST GAMING SITE EVER!</h2>
                     <p>Meet the V&V GameHub. A new project to sell video games for every taste and color. Enjoy the extensive selection and enjoy.</p>
                     <div class="search-input">
-                        <form id="search" action="#">
-                            <input type="text" placeholder="Searsh game" id='searchText' name="searchKeyword" onkeypress="handle" />
-                            <button role="button">Search Now</button>
+                        <form action="@Url.Action("Search", "Shop")" method="get" class="d-flex">
+                            <input type="text" name="query" placeholder="Search game…" class="form-control" />
+                            <button type="submit" class="btn btn-primary ms-2">Search</button>
                         </form>
+
                     </div>
                 </div>
             </div>
