@@ -100,6 +100,37 @@ namespace VVGames.Web.Controllers
 
             return View(viewModel);
         }
+    
+           public ActionResult Search(string query, int page = 1)
+        {
+            const int PageSize = 6;
+
+            var filteredGames = _productBL.SearchGames(query);
+
+            var totalItems = filteredGames.Count;
+            var gamesToShow = filteredGames
+                              .Skip((page - 1) * PageSize)
+                              .Take(PageSize)
+                              .ToList();
+
+            var viewModel = gamesToShow.Select(game => new GameViewModel
+            {
+                Id = game.Id,
+                Articul = game.Articul,
+                Name = game.Name,
+                Genres = game.Genres.ToString(),
+                Price = game.Price,
+                ImageUrl = game.ImageUrl,
+                ShortDescription = game.ShortDescription
+            }).ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)PageSize);
+            ViewBag.SearchQuery = query;
+
+            return View("Shop", viewModel);   // переиспользуем уже существующую вёрстку
+           }
+
     }
 
 }
