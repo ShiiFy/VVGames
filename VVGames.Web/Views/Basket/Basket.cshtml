@@ -25,7 +25,7 @@
             Ваша корзина пуста.
         </div>
         <p>
-            @Html.ActionLink("Перейти в магазин", "Shop", "Product", null, new { @class = "btn btn-primary" })
+            <a href="@Url.Action("Shop", "Shop")" class="btn btn-primary">Перейти в магазин</a>
         </p>
     }
     else

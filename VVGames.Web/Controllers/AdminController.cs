@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VVGames.BusinessLogic;
@@ -86,7 +87,7 @@ namespace VVGames.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddGame() => View(new DBGames());
+        public ActionResult AddGame() => View(new AddGameViewModel());
 
         [HttpPost]
         public ActionResult AddGame(AddGameViewModel model)
@@ -132,7 +133,24 @@ namespace VVGames.Web.Controllers
             if (game == null)
                 return RedirectToAction("ProductManagement");
 
-            return View(game);
+            var viewModel = new EditGameViewModel
+            {
+                Id = game.Id,
+                Articul = game.Articul,
+                Name = game.Name,
+                ShortDescription = game.ShortDescription,
+                Price = game.Price,
+                Description = game.Description,
+                ReleaseDate = game.ReleaseDate,
+                ImageUrl = game.ImageUrl,
+                SelectedGenres = Enum.GetValues(typeof(GameGenre))
+            .Cast<GameGenre>()
+            .Where(flag => flag != GameGenre.None && game.Genres.HasFlag(flag))
+            .Select(g => (int)g)
+            .ToList()
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
