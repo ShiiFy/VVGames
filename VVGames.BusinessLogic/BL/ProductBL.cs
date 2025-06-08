@@ -16,7 +16,7 @@ namespace VVGames.BusinessLogic.BL
             if (ArticulExistsAction(model.Articul))
                 return false;
 
-            AddGameAction(model); 
+            AddGameAction(model);
             return true;
         }
         public List<DBGames> GetGames()
@@ -55,5 +55,10 @@ namespace VVGames.BusinessLogic.BL
         public DBGames GetGameById(int id) => GetGameByIdAction(id);
         public List<DBGames> GetGamesPaged(int page, int pageSize) => GetGamesPagedAction(page, pageSize);
         public int GetTotalGameCount() => GetTotalGameCountAction();
+
+        
+        /// Возвращает игры, удовлетворяющие поисковому запросу.
+        public List<DBGames> SearchGames(string keyword) => SearchGamesAction(keyword);
+
     }
 }

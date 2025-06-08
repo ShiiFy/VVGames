@@ -12,5 +12,9 @@ namespace VVGames.BusinessLogic.Interface
         DBGames GetGameById(int id); //Получение игры по айди
         List<DBGames> GetGamesPaged(int page, int pageSize); //
         int GetTotalGameCount(); //
+
+        List<DBGames> SearchGames(string keyword);   // поиск игр
+
     }
+
 }
